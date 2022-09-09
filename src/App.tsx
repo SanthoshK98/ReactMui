@@ -1,4 +1,5 @@
 import './App.css';
+import { createTheme, colors, ThemeProvider } from '@mui/material';
 import { MuiAccordion } from './components/MuiAccordion';
 import { MuiAlert } from './components/MuiAlert';
 import { MuiAutocomplete } from './components/MuiAutocomplete';
@@ -22,6 +23,7 @@ import { MuiNavbar } from './components/MuiNavbar';
 import { MuiProgress } from './components/MuiProgress';
 import { MuiRadioButton } from './components/MuiRadioButton';
 import { MuiRating } from './components/MuiRating';
+import { MuiResponsiveness } from './components/MuiResponsiveness';
 import { MuiSelect } from './components/MuiSelect';
 import { MuiSkeleton } from './components/MuiSkeleton';
 import { MuiSnackbar } from './components/MuiSnackbar';
@@ -31,8 +33,24 @@ import { MuiTable } from './components/MuiTable';
 import MuiTextField from './components/MuiTextField';
 import { MuiTooltip } from './components/MuiTooltip';
 
+const theme = createTheme({
+  status: {
+    danger: '#e53e3e'
+  },
+  palette: {
+    secondary: {
+      main: colors.orange[500]
+    },
+    neutral: {
+      main: colors.grey[500],
+      darker: colors.grey[700]
+    }
+  },
+})
+
 function App() {
   return (
+    <ThemeProvider theme={theme}>   
     <div className="App">
       {/* <h1>Hello World</h1> */}
       {/* <MuiTextField/> */}
@@ -65,8 +83,10 @@ function App() {
       {/* <MuiDialog/>  */}
       {/* <MuiProgress/> */}
       {/* <MuiSkeleton/> */}
-      <MuiLoadingButton/>
+      {/* <MuiLoadingButton/> */}
+      <MuiResponsiveness/>
     </div>
+    </ThemeProvider>
   );
 }
 
